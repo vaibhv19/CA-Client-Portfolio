@@ -1,0 +1,14 @@
+# Block private keys and database strings
+.env
+.env.local
+
+# Block Python runtime files
+__pycache__/
+*.pyc
+db.sqlite3
+.venv/
+
+# Block frontend dependency trees and build folders
+node_modules/
+.next/
+dist/
