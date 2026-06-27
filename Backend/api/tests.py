@@ -180,3 +180,4 @@ class PortfolioAPITests(APITestCase):
         url_detail = reverse('networking-inquiries-detail', kwargs={'pk': msg.pk})
         response = self.client.get(url_detail)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        
