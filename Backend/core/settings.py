@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     
     # Third Party Apps
     'corsheaders',
+    'rest_framework',
     
     # Local Apps
     'api.apps.ApiConfig',
@@ -131,6 +132,17 @@ STATIC_URL = 'static/'
 # CORS Configuration
 CORS_ALLOWED_ORIGINS = [origin.strip() for origin in os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000').split(',') if origin.strip()]
 CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
+
+# REST Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day',
+        'contact': '5/day',
+    }
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
