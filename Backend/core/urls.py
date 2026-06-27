@@ -25,5 +25,6 @@ if not admin_path.endswith('/'):
 
 urlpatterns = [
     path(admin_path, admin.site.urls),
+    path('api/', include('api.urls')),
 ]
 
