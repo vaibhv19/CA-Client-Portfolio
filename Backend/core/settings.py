@@ -159,3 +159,21 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:3000'
 ]
 
+# Temporary auto-superuser creation script for the cloud demo
+import os
+from django.db.models.signals import post_migrate
+from django.contrib.auth import get_user_model
+
+def create_cloud_superuser(sender, **kwargs):
+    User = get_user_model()
+    # Define your temporary login details here
+    username = 'admin'
+    password = 'MySecretPassword123'  # Change this to whatever you want
+    
+    if not User.objects.filter(username=username).exists():
+        User.objects.create_superuser(username=username, email='', password=password)
+        print(f"🎉 Cloud Superuser '{username}' successfully created!")
+
+# Trigger this function automatically as soon as the database migration finishes
+post_migrate.connect(create_cloud_superuser)
+
