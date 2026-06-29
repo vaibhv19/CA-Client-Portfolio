@@ -152,3 +152,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Force the Django Admin "VIEW SITE" link to point to your Next.js development server
 SITE_ID = 1
 
+# Automatically trust the Render live domain in production
+CSRF_TRUSTED_ORIGINS = [
+    'https://ca-client-portfolio.onrender.com',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000'
+]
+
