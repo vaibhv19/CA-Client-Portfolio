@@ -149,3 +149,6 @@ REST_FRAMEWORK = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Force the Django Admin "VIEW SITE" link to point to your Next.js development server
+SITE_ID = 1
+
