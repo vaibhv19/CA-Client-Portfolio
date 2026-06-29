@@ -1,4 +1,5 @@
 import React from "react";
+import ContactForm from "../components/ContactForm";
 
 export const dynamic = "force-dynamic";
 
@@ -436,6 +437,9 @@ export default async function Home() {
             ))}
           </div>
         </section>
+
+        {/* SECTION 4: INTERACTIVE CONTACT FORM */}
+        <ContactForm />
 
       </main>
 
