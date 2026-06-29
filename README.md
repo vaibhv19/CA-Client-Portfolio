@@ -1,4 +1,4 @@
-# CA Priyam Gupta | Executive Portfolio & Inquiry Pipeline
+# Executive Portfolio & Inquiry Pipeline
 
 A high-performance, secure, and visually stunning monorepo portfolio application built for **CA Priyam Gupta** (Chartered Accountant & CS Professional G1). This project bridges a modern Next.js frontend with a robust Django REST Framework backend, implementing advanced features like encrypted database fields, parallel server-side fetches, and production-ready environment configurations.
 
