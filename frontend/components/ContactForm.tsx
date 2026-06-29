@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
@@ -17,7 +19,7 @@ export default function ContactForm() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/networking-inquiries/", {
+      const response = await fetch(`${API_URL}/api/networking-inquiries/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

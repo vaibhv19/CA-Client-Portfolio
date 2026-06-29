@@ -48,29 +48,31 @@ interface PortfolioData {
   education: EducationAndCredential[];
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 // Parallel Fetching using Promise.all on the Server
 async function getPortfolioData(): Promise<PortfolioData | null> {
   try {
     const fetchProfile = async (): Promise<ExecutiveProfile> => {
-      const res = await fetch("http://127.0.0.1:8000/api/profile/", { cache: "no-store" });
+      const res = await fetch(`${API_URL}/api/profile/`, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch executive profile");
       return await res.json();
     };
 
     const fetchExperience = async (): Promise<ExperienceTimeline[]> => {
-      const res = await fetch("http://127.0.0.1:8000/api/experience/", { cache: "no-store" });
+      const res = await fetch(`${API_URL}/api/experience/`, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch experience");
       return await res.json();
     };
 
     const fetchSkills = async (): Promise<CategorizedSkills> => {
-      const res = await fetch("http://127.0.0.1:8000/api/skills/", { cache: "no-store" });
+      const res = await fetch(`${API_URL}/api/skills/`, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch skills");
       return await res.json();
     };
 
     const fetchEducation = async (): Promise<EducationAndCredential[]> => {
-      const res = await fetch("http://127.0.0.1:8000/api/education/", { cache: "no-store" });
+      const res = await fetch(`${API_URL}/api/education/`, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch education");
       return await res.json();
     };
@@ -110,7 +112,7 @@ export default async function Home() {
             System unreachable - please ensure Django server is active
           </p>
           <div className="text-xs text-slate-500 bg-slate-900/60 p-3 rounded-xl border border-slate-800 break-all font-mono">
-            GET http://127.0.0.1:8000/api/profile/
+            GET {API_URL}/api/profile/
           </div>
         </div>
       </div>
