@@ -18,6 +18,9 @@ import os
 from django.contrib import admin
 from django.urls import path, include
 
+# Override the default "View Site" URL globally in the admin interface
+admin.site.site_url = 'http://localhost:3000'
+
 # Retrieve the obscured admin path from the environment
 admin_path = os.getenv('ADMIN_PATH', 'secure-ca-vault-789')
 if not admin_path.endswith('/'):
